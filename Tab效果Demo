@@ -60,8 +60,8 @@
 	<div class="tab">
 		<ul class="tab-header clearfix">
 	    	<li class="active">tab1</li>
-	    	<li>tab1</li>
-	    	<li>tab1</li>
+	    	<li>tab2</li>
+	    	<li>tab3</li>
 	    </ul>
 
 	    <ul class="tab-container">
