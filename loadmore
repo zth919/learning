@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Load More</title>
+
+<style>
+
+#ct>li {
+	border: 1px solid #ccc;
+	list-style: none;
+	padding: 8px;
+    margin-top: 5px;
+    position: relative;
+    left: -20px;
+}
+
+#ct>li:hover {
+	background-color: green;
+	opacity: 0.8;
+	color: #fff;
+}
+
+#btn {
+	border: 1px solid #f08d7a;
+	color: #f08d7a;
+	text-decoration: none;
+	padding: 8px;
+	border-radius: 3px;
+	position: absolute;
+	left: 47%;
+}
+
+
+</style>
+</head>
+<body>
+
+<ul id="ct">
+  <li>内容1</li>
+  <li>内容2</li>
+</ul>
+
+<a href="#" id="btn">加载更多</a>
+
+
+ 
+<script>
+
+
+function ajax(opts) {
+	var xhr = new XMLHttpRequest()
+	xhr.onreadystatechange = function() {
+	if (xhr.readyState == 4 && xhr.status == 200) {
+	  var result = JSON.parse(xhr.responseText)
+	  opts.success(result)
+	}
+	if (xhr.readyState == 4 && xhr.status == 404) {
+	  opts.error()
+	}
+	}
+	var queryStringArr = []
+	for (var key in opts.data) {
+	queryStringArr.push(key + '=' + opts.data[key])
+	}
+	var queryString = queryStringArr.join('&')
+	if (opts.type.toLowerCase() === 'get') {
+	xhr.open('get', opts.url + '?' + queryString, true)
+	xhr.send()
+	}
+	if (opts.type.toLowerCase() === 'post') {
+	xhr.open('post', opts.url, true)
+	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+	xhr.send(queryString)
+	}
+	}
+
+	var btn = $('#btn');
+	var list = $('#ct');
+    var start = 2;
+    var len = 6;
+    btn.addEventListener('click', function() {
+      ajax({
+        url: '/getData', //接口地址
+        type: 'get', // 类型， post 或者 get,
+        data: {
+          start: start,
+          len: len
+        },
+        success: function(res) {
+          var fragment = document.createDocumentFragment()
+          for (var i = 0; i < res.data.length; i++) {
+            var li = document.createElement('li')
+            li.innerText = res.data[i]
+            fragment.appendChild(li)
+          }
+          list.appendChild(fragment)
+          start += 6;
+          console.log(res) // {status: 0}
+        },
+        error: function() {
+          console.log('出错了')
+        }
+      })
+    })
+
+function $(id){
+	return document.querySelector(id);
+}
+</script> 
+
+</body>
+</html>
+
+
+//后端代码
+app.get('/getData', function(req, res) {
+  var start = parseInt(req.query.start, 10)
+  var len = parseInt(req.query.len, 10)
+  var data = []
+  for (var i = start + 1; i <= start + len; i++) {
+    data.push('内容' + i)
+  }
+  res.send({
+    status: 0,
+    data: data
+  });
+});
