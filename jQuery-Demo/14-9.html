@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Task-14-9</title>
+	<meta charset="utf-8">
+
+	<style>
+	ul,
+	li {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
+	li {
+		list-style: none;
+	}
+
+	a {
+		color: #000;
+		text-decoration: none;
+	}
+
+    .wrap-li {
+    	position: relative;
+    	width: 180px;
+    }
+
+    .wrap-li>a {
+    	display: block;
+    	background-color: #e72213;
+    	color: #fff;
+    	padding: 6px 20px;
+    	border-bottom: 1px dotted #ccc;
+    }
+
+    .wrap-li>a span {
+        float: right;
+    }
+
+	.hide-ul {
+		position: absolute;
+		background-color: #fff;
+		left: 180px;
+		top: 0;
+		font-size: 13px;
+		border: 1px solid #ccc;
+		width: 160px;
+		display: none;
+	}
+
+	.hide-ul>li {
+		float: left;
+		width: 70px;
+		padding: 10px;
+	}
+	</style>
+</head>
+<body>
+    <ul class="wrap-ul">
+		<li class="wrap-li">
+			<a href="#">珠宝玉器<span>></span></a>
+			<ul class="hide-ul">
+				<li>翡翠</li>
+				<li>玉石</li>
+				<li>宝石</li>
+				<li>水晶</li>
+				<li>玛瑙</li>
+				<li>珍珠</li>
+			</ul>
+		</li>
+		<li class="wrap-li">
+			<a href="#">珠宝玉器<span>></span></a>			
+			<ul class="hide-ul">
+				<li>翡翠</li>
+				<li>玉石</li>
+				<li>宝石</li>
+				<li>水晶</li>
+				<li>玛瑙</li>
+				<li>珍珠</li>
+			</ul>
+		</li>
+		<li class="wrap-li">
+			<a href="#">珠宝玉器<span>></span></a>		
+			<ul class="hide-ul">
+				<li>翡翠</li>
+				<li>玉石</li>
+				<li>宝石</li>
+				<li>水晶</li>
+				<li>玛瑙</li>
+				<li>珍珠</li>
+			</ul>
+		</li>
+		<li class="wrap-li">
+			<a href="#">珠宝玉器<span>></span></a>		
+			<ul class="hide-ul">
+				<li>翡翠</li>
+				<li>玉石</li>
+				<li>宝石</li>
+				<li>水晶</li>
+				<li>玛瑙</li>
+				<li>珍珠</li>
+			</ul>
+		</li>
+		<li class="wrap-li">
+			<a href="#">珠宝玉器<span>></span></a>		
+			<ul class="hide-ul">
+				<li>翡翠</li>
+				<li>玉石</li>
+				<li>宝石</li>
+				<li>水晶</li>
+				<li>玛瑙</li>
+				<li>珍珠</li>
+			</ul>
+		</li>
+    </ul>
+
+    <script src="jquery-3.2.1.min.js"></script>
+    <script>
+    	$('.wrap-li').on('mouseenter',function(){
+    		$(this).find('.hide-ul').show();
+    	})
+    	$('.wrap-li').on('mouseleave',function(){
+    		$(this).find('.hide-ul').hide();
+    	})
+    </script>
+</body>
+</html>
