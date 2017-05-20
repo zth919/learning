@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery图片懒加载</title>
+	<meta charset="utf-8">
+	
+	<style>
+		ul,li {
+			list-style: none;
+		}
+		.container {
+			width: 800px;
+			margin: 0 auto;
+		}
+		.container:after {
+			content: '';
+			display: block;
+			clear: both;
+		}
+		.container li {
+			float: left;
+			margin: 10px 10px;
+		}
+		.container li img {
+			width: 300px;
+			height: 300px;
+		}
+	</style>
+
+</head>
+<body>
+<ul class="container">
+    <li><a href="#"><img src="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/1.jpg" alt=""></a></li>
+	<li><a href="#"><img src="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg" alt=""></a></li>
+	<li><a href="#"><img src="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/3.jpg" alt=""></a></li>
+	<li><a href="#"><img src="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/4.jpg" alt=""></a></li>
+	<li><a href="#"><img src="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/5.jpg" alt=""></a></li>
+	<li><a href="#"><img src="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/6.jpg" alt=""></a></li>
+	<li><a href="#"><img src="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/7.jpg" alt=""></a></li>
+	<li><a href="#"><img src="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/8.jpg" alt=""></a></li>
+	<li><a href="#"><img src="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/9.jpg" alt=""></a></li>
+	<li><a href="#"><img src="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/10.jpg" alt=""></a></li>
+	<li><a href="#"><img src="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/11.jpg" alt=""></a></li>
+	<li><a href="#"><img src="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/12.jpg" alt=""></a></li>
+	<li><a href="#"><img src="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/13.jpg" alt=""></a></li>
+	<li><a href="#"><img src="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/14.jpg" alt=""></a></li>
+	<li><a href="#"><img src="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/15.jpg" alt=""></a></li>
+	<li><a href="#"><img src="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/16.jpg" alt=""></a></li>
+	<li><a href="#"><img src="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/17.jpg" alt=""></a></li>
+</ul>
+	
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+<script>
+
+check();
+$(window).on('scroll',check)
+
+function check(){
+	$('.container img').not('.loaded').each(function(){
+		if(isShow($(this))){
+			showImg($(this));
+	    }
+	})
+}
+
+function isShow($node){
+	var windowHeight = $(window).height(),
+		scrollTop = $(window).scrollTop(),
+		offsetTop = $node.offset().top,
+		nodeHeight = $node.outerHeight(true)
+
+	if( windowHeight + scrollTop > offsetTop && scrollTop < offsetTop + nodeHeight){
+		return true;
+	}else{
+		return false;
+	}
+}
+
+function showImg($imgs){
+	$imgs.each(function(){
+		var imgURL = $(this).attr('data-src');
+	    $(this).attr('src',imgURL);
+	    $(this).addClass('loaded');
+	})	
+}
+</script>
+</body>
+</html>
