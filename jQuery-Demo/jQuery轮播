@@ -103,8 +103,8 @@
 			<li data-index=3><a href="https://github.com/SpontaLeos"><img src="http://cdn.jirengu.com/book.jirengu.com/img/4.jpg" alt="4.jpg"></a></li>
 	    </ul>
 
-		<a class="btn btn-pre" href="#">&lt;</a>
-		<a class="btn btn-next" href="#">&gt;</a>
+		<a class="btn btn-pre" href="javascript:void(0)">&lt;</a>
+		<a class="btn btn-next" href="javascript:void(0)">&gt;</a>
 		
 
 		<div class="bullet-ct">
