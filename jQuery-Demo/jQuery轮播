@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>轮播</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<style>
+
+	ul,li {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	a {
+		text-decoration: none;
+	}
+
+	.carousel {
+		position: relative;
+		width: 300px;
+		height: 200px;
+		overflow: hidden;
+	}
+
+	.carousel .img-ct:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+	
+	.carousel .img-ct {
+		position: absolute;
+	}
+	.carousel .img-ct img {
+		width: 300px;
+		height: 200px;
+	}
+
+	.carousel .img-ct li {
+		float: left;
+	}
+
+	.btn {
+		position: absolute;
+		top: 50%;
+		margin-top: -15px;
+		text-align: center;
+		line-height: 30px;
+		font-size: 18px;
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+		color: #fff;
+		border: 1px solid #fff;
+		box-shadow: 0 0 2px #999;
+		opacity: 0.8;
+	}
+
+	.btn:hover {
+		opacity: 1;
+	}
+
+	.btn-pre {
+		left: 10px;
+	}
+
+	.btn-next {
+		right: 10px; 
+	}
+
+	.bullet-ct {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 20px;
+		text-align: center;
+	}
+	.bullet {
+		display: inline-block;
+	}
+
+	.bullet>li {
+		display: inline-block;
+		width: 20px;
+		height: 5px;
+		margin-left: 5px;
+		border: 1px solid #fff;
+		border-radius: 3px;
+	}
+
+	.bullet .active {
+		background-color: #ccc;
+	}
+	</style>
+</head>
+<body>
+	<div class="carousel">
+		<ul class="img-ct">
+		    <li data-index=0><a href="https://github.com/SpontaLeo"><img src="http://cdn.jirengu.com/book.jirengu.com/img/1.jpg" alt="1.jpg"></a></li>
+			<li data-index=1><a href="https://github.com/SpontaLeo"><img src="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg" alt="2.jpg"></a></li>
+			<li data-index=2><a href="https://github.com/SpontaLeo"><img src="http://cdn.jirengu.com/book.jirengu.com/img/3.jpg" alt="3.jpg"></a></li>
+			<li data-index=3><a href="https://github.com/SpontaLeos"><img src="http://cdn.jirengu.com/book.jirengu.com/img/4.jpg" alt="4.jpg"></a></li>
+	    </ul>
+
+		<a class="btn btn-pre" href="#">&lt;</a>
+		<a class="btn btn-next" href="#">&gt;</a>
+		
+
+		<div class="bullet-ct">
+			<ul class="bullet">
+				<li class="active"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+
+	</div>
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+<script>
+
+    var $preBtn = $('.btn-pre'),
+    	$nextBtn = $('.btn-next'),
+    	$imgCt = $('.img-ct'),
+    	$bullets = $('.bullet li');
+	
+	var $firstImg = $imgCt.find('li').first(),
+		$lastImg = $imgCt.find('li').last();
+	
+	var imgIndex = 0;
+
+    var isAnimate = false;
+    var $imgs = $('.img-ct>li'),
+    	imgCount = $imgs.length,
+    	imgWidth = $imgs.width();
+    
+	$imgCt.prepend($lastImg.clone());
+    $imgCt.append($firstImg.clone());
+    $imgCt.css({left: -imgWidth});
+    $imgCt.width(imgWidth * (imgCount + 2));
+
+    $nextBtn.on('click',function(){
+    	playNext(1);
+    })
+
+    $preBtn.on('click',function(){
+    	playPre(1);
+    })
+
+    $bullets.on('click',function(){
+    	var index = $(this).index()
+    	if(index > imgIndex){
+    		playNext(index - imgIndex)
+    	}else if(index < imgIndex){
+    		playPre(imgIndex - index)
+    	}
+    })
+	function playNext(len){
+		if(isAnimate) return;
+		isAnimate = true;
+		$imgCt.animate({
+			left: '-='+len*imgWidth,
+		},function(){
+			imgIndex += len;
+			if(imgIndex === imgCount){
+				$imgCt.css({left: -imgWidth})
+				imgIndex = 0;
+			}
+			setBullet()
+			isAnimate = false;
+		})
+	}
+
+	function playPre(len){
+		$imgCt.animate({
+			left: '+='+len*imgWidth,
+		},function(){
+			imgIndex -= len;
+			if(imgIndex < 0){
+				$imgCt.css({left:-imgCount*imgWidth});
+				imgIndex = imgCount - 1;
+			}
+			setBullet()
+		})
+	}
+
+	function setBullet(){
+		$bullets.removeClass('active')
+			    .eq(imgIndex)
+			    .addClass('active')
+	}
+</script>
+</body>
+</html>
