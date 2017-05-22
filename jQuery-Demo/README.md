@@ -4,3 +4,4 @@
 - [天气](http://htmlpreview.github.io/?https://github.com/SpontaLeo/learning/blob/master/jQuery-Demo/%E5%A4%A9%E6%B0%94.html)
 - [jQuery图片懒加载](http://htmlpreview.github.io/?https://github.com/SpontaLeo/learning/blob/master/jQuery-Demo/jQuery%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD)
 - [jQuery轮播](https://htmlpreview.github.io/?https://github.com/SpontaLeo/learning/blob/master/jQuery-Demo/jQuery%E8%BD%AE%E6%92%AD#)
+- [jQuery轮播-淡入淡出](https://htmlpreview.github.io/?https://github.com/SpontaLeo/learning/blob/master/jQuery-Demo/jQuery%E8%BD%AE%E6%92%AD-%E6%B7%A1%E5%85%A5%E6%B7%A1%E5%87%BA.html#)
