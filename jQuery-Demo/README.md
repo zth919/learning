@@ -1,6 +1,7 @@
 - [jQuery事件绑定](https://spontaleo.github.io/learning/jQuery-Demo/jQuery%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A.html)
 - [jQuery-Tab切换](https://spontaleo.github.io/learning/jQuery-Demo/jQuery-Tab%E5%88%87%E6%8D%A2.html)
 - [jQuery-LoadMore](https://spontaleo.github.io/learning/jQuery-Demo/jQuery-Loadmore.html)
+- [jQuery-DOM](https://spontaleo.github.io/learning/jQuery-Demo/jQuery-DOM.html)
 - [天气](https://spontaleo.github.io/learning/jQuery-Demo/%E5%A4%A9%E6%B0%94.html)
 - [jQuery图片懒加载](https://spontaleo.github.io/learning/jQuery-Demo/jQuery%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD.html)
 - [jQuery轮播](https://spontaleo.github.io/learning/jQuery-Demo/jQuery%E8%BD%AE%E6%92%AD.html)
