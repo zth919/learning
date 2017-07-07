@@ -6,4 +6,4 @@
 - [jQuery轮播](https://htmlpreview.github.io/?https://github.com/SpontaLeo/learning/blob/master/jQuery-Demo/jQuery%E8%BD%AE%E6%92%AD#)
 - [jQuery轮播-淡入淡出](https://htmlpreview.github.io/?https://github.com/SpontaLeo/learning/blob/master/jQuery-Demo/jQuery%E8%BD%AE%E6%92%AD-%E6%B7%A1%E5%85%A5%E6%B7%A1%E5%87%BA.html#)
 - [瀑布流布局](https://spontaleo.github.io/learning/jQuery-Demo/%E7%80%91%E5%B8%83%E6%B5%81%E5%B8%83%E5%B1%80.html)
-- [木桶布局](http://htmlpreview.github.io/?https://github.com/SpontaLeo/learning/blob/master/jQuery-Demo/%E6%9C%A8%E6%A1%B6%E5%B8%83%E5%B1%80)
+- [木桶布局](https://spontaleo.github.io/learning/jQuery-Demo/%E6%9C%A8%E6%A1%B6%E5%B8%83%E5%B1%80.html)
